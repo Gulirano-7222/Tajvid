@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tajvid so’zlarini toping</title>
+<style>
+:root{--gold:#f6d36b;--navy:#0b1b4a;--cream:#fff6d8;--ink:#10204f;--c:28px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,"Times New Roman",serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#24479c 0,#0b1b4a 45%,#050d2a 100%) fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.7;background:
+radial-gradient(1.5px 1.5px at 10% 12%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 30%,#fff,transparent),radial-gradient(2px 2px at 70% 8%,#ffe9a8,transparent),radial-gradient(1.5px 1.5px at 85% 25%,#fff,transparent),radial-gradient(1.5px 1.5px at 55% 45%,#fff,transparent),radial-gradient(2px 2px at 92% 60%,#ffe9a8,transparent),radial-gradient(1.5px 1.5px at 6% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 40% 85%,#fff,transparent)}
+.moon{position:fixed;top:14px;right:18px;width:54px;height:54px;border-radius:50%;box-shadow:12px 6px 0 0 var(--gold);transform:rotate(-20deg);pointer-events:none;opacity:.9}
+.mosque{position:fixed;left:0;right:0;bottom:0;height:130px;opacity:.28;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:14px 12px 150px}
+h1{margin:6px 0 10px;text-align:center;font-size:clamp(28px,8vw,46px);font-style:italic;color:var(--gold);text-shadow:0 2px 8px #000a;line-height:1.1}
+h1 small{display:block;color:#fff;font-size:.5em}
+.bar,.ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin:8px 0}
+.pill{background:#0b1b4acc;border:2px solid var(--gold);border-radius:999px;padding:6px 14px;font-weight:700}
+.pill.warn{color:#ff8a80;border-color:#ff8a80}
+button{font:inherit;font-weight:700;cursor:pointer;border:2px solid var(--gold);background:linear-gradient(#1b3a86,#0b1b4a);color:var(--gold);border-radius:12px;padding:8px 14px}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.main{background:linear-gradient(#ffe38a,#d9a520);color:#10204f}
+.wrap{overflow:auto;max-height:68vh;border:3px solid var(--gold);border-radius:14px;background:#fff1c4;padding:6px;box-shadow:0 0 24px #f6d36b55}
+#grid{display:grid;grid-template-columns:repeat(17,var(--c));gap:2px;width:max-content;margin:0 auto}
+.cell{width:var(--c);height:var(--c);display:flex;align-items:center;justify-content:center;background:var(--cream);color:var(--ink);border:1px solid #d9c27a;border-radius:6px;font-weight:800;font-family:Arial,sans-serif;font-size:calc(var(--c)*.58);cursor:pointer;user-select:none}
+.cell.start{background:#ffd54a;outline:3px solid #e65100}
+.cell.f{background:hsl(var(--h) 75% 62%);color:#fff;text-shadow:0 1px 2px #0007;border-color:hsl(var(--h) 60% 40%)}
+.cell.hint{animation:p 1s infinite;background:#9be7a6}
+@keyframes p{50%{transform:scale(1.15);box-shadow:0 0 10px #2ecc71}}
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:12px;background:#0b1b4acc;border:2px solid var(--gold);border-radius:14px;padding:10px}
+.words span{font-weight:700;font-size:14px;padding:3px 6px}
+.words span::before{content:"✦ ";color:var(--gold)}
+.words span.d{text-decoration:line-through;opacity:.55;color:#9be7a6}
+.hintline{text-align:center;font-style:italic;color:#ffe9a8;margin:8px 0;font-size:14px}
+.ov{position:fixed;inset:0;z-index:20;background:#050d2ae6;display:flex;align-items:center;justify-content:center;padding:16px}
+.ov[hidden]{display:none}
+.box{max-width:420px;width:100%;background:linear-gradient(#142a68,#0b1b4a);border:3px solid var(--gold);border-radius:18px;padding:20px;text-align:center}
+.box input{width:100%;font:inherit;font-size:18px;padding:10px;border-radius:10px;border:2px solid var(--gold);margin:12px 0;background:#fff;color:var(--ink)}
+.box p{margin:8px 0}
+.box a{display:inline-block;text-decoration:none}
+.res{font-size:18px;line-height:1.7;text-align:left;background:#0006;border-radius:12px;padding:10px 14px;margin:10px 0}
+</style></head>
+<body>
+<div class="moon"></div>
+<svg class="mosque" viewBox="0 0 800 130" preserveAspectRatio="xMidYMax slice" fill="#f6d36b"><path d="M0 130V100h40V60l6-14 6 14v40h40V90q30-50 60 0v10h30V30l5-22 5 22v70h40V80q40-60 80 0v20h60V50l6-18 6 18v50h40V85q45-70 90 0v15h30V40l5-20 5 20v60h50V95q30-45 60 0v5h40V55l6-16 6 16v45h54v30z"/></svg>
+<main>
+<h1>Tajvid<small>So’zlarini toping!</small></h1>
+<div class="bar"><div class="pill" id="tm">⏱ 10:00</div><div class="pill" id="fd">✅ 0/25</div><div class="pill" id="hl">💡 5</div></div>
+<div class="ctl"><button id="zo">➖</button><button id="zi">➕</button><button id="hb">💡 Yordam</button><button id="sc">Кирилл</button></div>
+<div class="wrap"><div id="grid"></div></div>
+<div class="hintline">Faqat chapdan o’ngga va yuqoridan pastga qarab izlang! So’zning birinchi harfiga, keyin oxirgi harfiga bosing.</div>
+<div class="words" id="wl"></div>
+</main>
+
+<div class="ov" id="start"><div class="box">
+<h2 style="color:var(--gold);margin:0">Bismillah</h2>
+<p>25 ta tajvid so’zini 10 daqiqada toping. 5 ta yordam bor.</p>
+<input id="nm" maxlength="40" placeholder="Ism va familiyangiz" autocomplete="name">
+<button class="main" id="go">Boshlash</button>
+</div></div>
+
+<div class="ov" id="end" hidden><div class="box">
+<h2 style="color:var(--gold);margin:0" id="et"></h2>
+<div class="res" id="er"></div>
+<p id="sent">Natijani botga yuboring (botda <b>Start</b> tugmasini bosing):</p>
+<a id="tg" target="_blank" rel="noopener"><button class="main">✈️ Telegramga yuborish</button></a>
+<p><button id="cp">📋 Nusxa olish</button> <button id="again">🔄 Qayta</button></p>
+</div></div>
+
+<script>
+const WORDS="HAMS JAXR SHIDDAH BAYNIYAH ROHOVAH TAJVID TARTIL IJMO SIFAT LOZIM ORIZ ALLAHAT TOVUSH HARF ALJAVF ALXOYSHUM MISVOK ALASNAN ALADROS ASHSHAFATAN ALLISAN MAXRAJ MUHAQQOQ MUQODDAR UN".split(" ");
+const N=17,TOTAL=600,MAXH=5;
+const CY={A:"А",B:"Б",D:"Д",F:"Ф",H:"Ҳ",I:"И",J:"Ж",K:"К",L:"Л",M:"М",N:"Н",O:"О",P:"П",Q:"Қ",R:"Р",S:"С",T:"Т",U:"У",V:"В",X:"Х",Y:"Й",Z:"З"};
+const $=id=>document.getElementById(id);
+let cyr=false,cs=28,G,PL,found,hints,left,timer,running=false,st=null,player="";
+const tr=s=>cyr?[...s].map(c=>CY[c]||c).join(""):s;
+
+function gen(){
+  for(let t=0;t<80;t++){
+    const g=Array.from({length:N},()=>Array(N).fill("")),pl=[];let ok=true;
+    for(const w of [...WORDS].sort((a,b)=>b.length-a.length)){
+      let done=false;
+      for(let k=0;k<500&&!done;k++){
+        const d=Math.random()<.5?[0,1]:[1,0];
+        const r=Math.floor(Math.random()*(N-d[0]*(w.length-1))),c=Math.floor(Math.random()*(N-d[1]*(w.length-1)));
+        let fit=true;
+        for(let i=0;i<w.length;i++){const x=g[r+d[0]*i][c+d[1]*i];if(x&&x!==w[i]){fit=false;break}}
+        if(!fit)continue;
+        for(let i=0;i<w.length;i++)g[r+d[0]*i][c+d[1]*i]=w[i];
+        pl.push({w,r,c,dr:d[0],dc:d[1],rev:0});done=true;
+      }
+      if(!done){ok=false;break}
+    }
+    if(ok){
+      const pool="ABDFHIJKLMNOPQRSTUVXYZ";
+      for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!g[r][c])g[r][c]=pool[Math.floor(Math.random()*pool.length)];
+      return{g,pl};
+    }
+  }
+}
+function cellEl(r,c){return $("grid").children[r*N+c]}
+function build(){
+  const o=gen();G=o.g;PL=o.pl;
+  const gr=$("grid");gr.innerHTML="";
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++){
+    const d=document.createElement("div");d.className="cell";d.dataset.r=r;d.dataset.c=c;gr.appendChild(d);
+  }
+  const wl=$("wl");wl.innerHTML="";
+  WORDS.forEach((w,i)=>{const s=document.createElement("span");s.id="w"+i;wl.appendChild(s)});
+  render();
+}
+function render(){
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++)cellEl(r,c).textContent=tr(G[r][c]);
+  WORDS.forEach((w,i)=>$("w"+i).textContent=tr(w));
+  $("sc").textContent=cyr?"Lotin":"Кирилл";
+}
+function setCs(v){cs=Math.max(16,Math.min(48,v));document.documentElement.style.setProperty("--c",cs+"px")}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function upd(){
+  $("tm").textContent="⏱ "+fmt(left);$("tm").classList.toggle("warn",left<=60);
+  $("fd").textContent="✅ "+found.size+"/"+WORDS.length;
+  $("hl").textContent="💡 "+(MAXH-hints);
+  $("hb").disabled=!running||hints>=MAXH;
+}
+function start(){
+  player=$("nm").value.trim();
+  if(!player){$("nm").focus();$("nm").style.outline="3px solid #ff8a80";return}
+  $("start").hidden=true;$("end").hidden=true;
+  found=new Set();hints=0;left=TOTAL;st=null;running=true;
+  build();
+  setCs(Math.max(18,Math.min(36,Math.floor((Math.min(innerWidth,700)-40)/N))));
+  upd();clearInterval(timer);
+  timer=setInterval(()=>{left--;upd();if(left<=0)finish()},1000);
+}
+$("grid").addEventListener("click",e=>{
+  const el=e.target.closest(".cell");if(!el||!running)return;
+  const r=+el.dataset.r,c=+el.dataset.c;
+  if(!st){st={r,c};el.classList.add("start");return}
+  cellEl(st.r,st.c).classList.remove("start");
+  if(st.r===r&&st.c===c){st=null;return}
+  let dr=0,dc=0;
+  if(r===st.r&&c>st.c)dc=1;else if(c===st.c&&r>st.r)dr=1;
+  else{st={r,c};el.classList.add("start");return}
+  const len=Math.max(r-st.r,c-st.c)+1;let s="";const cells=[];
+  for(let i=0;i<len;i++){s+=G[st.r+dr*i][st.c+dc*i];cells.push(cellEl(st.r+dr*i,st.c+dc*i))}
+  st=null;
+  const idx=WORDS.indexOf(s);
+  if(idx>=0&&!found.has(s)){
+    found.add(s);
+    cells.forEach(x=>{x.classList.remove("hint");x.classList.add("f");x.style.setProperty("--h",(idx*47)%360)});
+    $("w"+idx).classList.add("d");
+    upd();
+    if(found.size===WORDS.length)finish();
+  }
+});
+$("hb").onclick=()=>{
+  if(!running||hints>=MAXH)return;
+  const open=PL.filter(p=>!found.has(p.w)&&p.rev<p.w.length);
+  if(!open.length)return;
+  const m=Math.min(...open.map(p=>p.rev)),pick=open.filter(p=>p.rev===m);
+  const p=pick[Math.floor(Math.random()*pick.length)];
+  cellEl(p.r+p.dr*p.rev,p.c+p.dc*p.rev).classList.add("hint");
+  p.rev++;hints++;upd();
+};
+$("zi").onclick=()=>setCs(cs+4);$("zo").onclick=()=>setCs(cs-4);
+$("sc").onclick=()=>{cyr=!cyr;render()};
+function report(){
+  return "Tajvid so’zlarini topish o’yini\nIsm: "+player+"\nTopgan so’zlar: "+found.size+"/"+WORDS.length+"\nOlingan yordam: "+hints+"/"+MAXH+"\nSarflangan vaqt: "+fmt(TOTAL-left);
+}
+function tgSend(d){
+  try{
+    const p="/TajvidMusobaqasiBot?start="+d;
+    if(window.TelegramWebviewProxy){TelegramWebviewProxy.postEvent("web_app_open_tg_link",JSON.stringify({path_full:p}));return true}
+    if(window.parent!==window&&/tgWebApp/.test(location.hash+location.search)){parent.postMessage(JSON.stringify({eventType:"web_app_open_tg_link",eventData:{path_full:p}}),"*");return true}
+  }catch(e){}
+  return false;
+}
+function payload(){
+  let n=player,b;
+  const enc=s=>btoa(String.fromCharCode(...new TextEncoder().encode(s))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  do{b=enc(found.size+"|"+hints+"|"+(TOTAL-left)+"|"+n);n=n.slice(0,-1)}while(b.length>64&&n.length);
+  return b;
+}
+function finish(){
+  if(!running)return;
+  running=false;clearInterval(timer);upd();
+  const all=found.size===WORDS.length;
+  $("et").textContent=all?"Barakallah! Hammasini topdingiz 🎉":(left<=0?"Vaqt tugadi ⏰":"Natija");
+  $("er").innerHTML="👤 "+player.replace(/[<>&]/g,"")+"<br>✅ Topilgan: <b>"+found.size+"/"+WORDS.length+"</b><br>💡 Yordam: <b>"+hints+"/"+MAXH+"</b><br>⏱ Vaqt: <b>"+fmt(TOTAL-left)+"</b>";
+  $("tg").href="https://t.me/TajvidMusobaqasiBot?start="+payload();
+  if(tgSend(payload()))$("sent").textContent="✅ Natija botga yuborilmoqda. Kelmasa, pastdagi tugmani bosing:";
+  $("end").hidden=false;
+}
+$("cp").onclick=async()=>{try{await navigator.clipboard.writeText(report());$("cp").textContent="✅ Nusxalandi"}catch(e){$("cp").textContent="Nusxalab bo’lmadi"}};
+$("again").onclick=()=>{$("end").hidden=true;$("start").hidden=false;$("cp").textContent="📋 Nusxa olish"};
+$("go").onclick=start;
+$("nm").addEventListener("keydown",e=>{if(e.key==="Enter")start()});
+build();
+</script>
+</body></html>
